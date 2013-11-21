@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <body>  
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">eMall</a>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+          <ul class="nav">
+            <li><h:link outcome="index.xhtml" value="Home"/></li>    
+            <li><h:link outcome="#{sellerController.productsView()}" value="My Products"/></li>    
+            <li><h:link outcome="index.xhtml" value="Transfert"/></li>    
+            <li><h:link outcome="index.xhtml" value="Nouveau(x) compte(s)"/></li>  
+          </ul>
+         
+          <ul class="nav pull-right">
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Compte <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Apperçu</a></li>
+                <li><a href="#">Modifier</a></li>
+                <li><a href="#">Conseiller</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Deconnexion</a></li>
+              </ul>
+            </li>
+          </ul>
+        <!-- Recherche -->  
+        <h:form class="navbar-search pull-right">
+            <p:autoComplete id="id_search" value="#{sellerController.txt1}"
+                            styleClass="search-query span2" completeMethod="#{sellerController.complete}" title="Chercher un produit">
+                <p:ajax listener="#{sellerController.showFilterCompte}" event="itemSelect" process="@this" />
+
+            </p:autoComplete>
+        </h:form>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div><!-- /navbar -->
+    </body>
+</html>
